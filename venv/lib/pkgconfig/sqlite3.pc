@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/Users/omkarsadekar/Documents/NEU Study Material/NEU Study Material/Capstone/LLM-Chatbot/EAI-6980-Rapid-LLM-Chatbot-Development/venv
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SQLite
+Description: SQL database engine
+Version: 3.41.2
+Libs: -L${libdir} -lsqlite3
+Libs.private: -lz 
+Cflags: -I${includedir}

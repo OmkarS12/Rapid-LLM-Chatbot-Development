@@ -1,0 +1,11 @@
+prefix=/Users/omkarsadekar/Documents/NEU Study Material/NEU Study Material/Capstone/LLM-Chatbot/EAI-6980-Rapid-LLM-Chatbot-Development/venv
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/Users/omkarsadekar/Documents/NEU Study Material/NEU Study Material/Capstone/LLM-Chatbot/EAI-6980-Rapid-LLM-Chatbot-Development/venv/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.3
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
