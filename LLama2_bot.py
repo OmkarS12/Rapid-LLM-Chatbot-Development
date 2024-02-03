@@ -1,3 +1,6 @@
+# Basic Implementation using LLama 2 Model, Prompt template and streamlit for UI
+# Install Required libraries
+
 import streamlit as st
 from langchain.prompts import PromptTemplate
 from langchain.llms import CTransformers
@@ -5,7 +8,7 @@ from langchain.llms import CTransformers
 # Function to get response from LLAma 2 Model
 
 
-def getLLamaresponse(input_text, no_words, expert_advice):
+def getLLamaresponse(input_text):
 
     # Loading the LLama 2 Model
     llm = CTransformers(model='models/llama-2-7b-chat.ggmlv3.q8_0.bin',
@@ -18,16 +21,15 @@ def getLLamaresponse(input_text, no_words, expert_advice):
     # Prompt Template
     template = """
         You are an expert education consultant and are supposed to suggest the best universities 
-        to students {expert_advice} university search {input_text}
-        within {no_words} words.
+        to students university search {input_text}.
             """
 
-    prompt = PromptTemplate(input_variables=["expert_advice", "input_text", 'no_words'],
+    prompt = PromptTemplate(input_variables=["input_text"],
                             template=template)
 
     # Generating the response
-    response = llm(prompt.format(expert_advice=expert_advice,
-                   input_text=input_text, no_words=no_words))
+    response = llm(prompt.format(
+                   input_text=input_text))
     print(response)
     return response
 
@@ -41,19 +43,13 @@ st.header("University Explorer ChatBot")
 
 input_text = st.text_input("Search the Information you want")
 
-# Creating columns for Additional fields
-
-col1, col2 = st.columns([5, 5])
-
-with col1:
-    no_words = st.text_input('Number of words')
-with col2:
-    blog_style = st.selectbox('Expert Advice for',
-                              ('Student', 'Teacher', 'Parent'), index=0)
-
 submit = st.button("Generate")
 
 # Final Response
 
 if submit:
-    st.write(getLLamaresponse(input_text, no_words, blog_style))
+    st.write(getLLamaresponse(input_text))
+
+
+# To run this code, open terminal and type:
+# streamlit run LLama2_bot.py

@@ -4,3 +4,6 @@ ctransformers
 langchain
 python-box
 streamlit
+SQLAlchemy
+sqlalchemy-utils
+psycopg2-binary

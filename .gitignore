@@ -3,4 +3,5 @@ venv/
 models/
 database_config.py
 RAG_LLamaIndex.ipynb
+data_utils/
 ```

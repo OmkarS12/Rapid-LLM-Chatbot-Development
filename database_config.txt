@@ -1,0 +1,7 @@
+postgresql = {
+    'pguser': 'ipeds',
+    'pghost': 'db-postgresql-nyc3-10726-do-user-15531455-0.c.db.ondigitalocean.com',
+    'pgport': '25060',
+    'pgdb': 'defaultdb',
+    'pgpassword': 'y64HegZEqX3c'
+}
